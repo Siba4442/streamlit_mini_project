@@ -144,7 +144,7 @@ def app():
             st.write(f"### Top {candidate_count} Candidate Recommendations")
         
             for idx, row in recommended_candidates.head(candidate_count).iterrows():
-                with st.expander(f"** - **", expanded=False):
+                with st.expander(f"**{row['Name']} - {row['Education']}**", expanded=False):
                     st.write(f"*Date of Birth:* {row['DOB']}")
                     st.write(f"*Email:* {row['Email']}")
                     st.write(f"*Phone Number:* {row['phone_number']}")
