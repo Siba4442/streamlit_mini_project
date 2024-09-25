@@ -73,7 +73,7 @@ def app():
         st.session_state['matcher'] = matcher
 
         # Load dataset and Word2Vec model
-        file_name = 'Candidate_csv_final_4.csv'
+        file_name = 'Candidate_csv_final_base64.csv'
         file_path = os.path.join(os.getcwd(), file_name)
         df = pd.read_csv(file_path)
         job_skills = df['skillsofusers']
@@ -153,13 +153,12 @@ def app():
                     st.write(f"*Address:* {row['Address']}")
                     st.write(f"*Gender:* {row['Gender']}")
                     st.write(f"*Zip Code:* {row['Zip_Code']}")
-                    resume_file_path = row['File_path']  # Use the File_path column
-
-                    # Create a download link for the PDF
-                    st.markdown(f'<a href="{resume_file_path}" download="{row["Name"]}_resume.pdf">Download Resume</a>', unsafe_allow_html=True)
+                    # Display the resume as a base64 PDF
+                    resume_base64 = row['base64_pdf']
+                    st.markdown(f'<a href="data:application/pdf;base64,{resume_base64}" download="{row["Name"]}_resume.pdf">Download Resume</a>', unsafe_allow_html=True)
 
                     # Option to view the PDF directly in the app
-                    st.markdown(f'<iframe src="{resume_file_path}" width="700" height="400"></iframe>', unsafe_allow_html=True)
+                    st.markdown(f'<iframe src="data:application/pdf;base64,{resume_base64}" width="700" height="400"></iframe>', unsafe_allow_html=True)
         else:    
             st.write("Please fill all the required fields before submitting.")
 
