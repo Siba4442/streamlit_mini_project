@@ -73,7 +73,7 @@ def app():
         st.session_state['matcher'] = matcher
 
         # Load dataset and Word2Vec model
-        file_name = 'Candidate_csv_final_3.csv'
+        file_name = 'Candidate_csv_final_4.csv'
         file_path = os.path.join(os.getcwd(), file_name)
         df = pd.read_csv(file_path)
         job_skills = df['skillsofusers']
