@@ -1,10 +1,11 @@
 import streamlit as st
 import candidate
 import recruiter
+import ATS
 
 # Sidebar for navigation using a radio button
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ("Home", "Candidate", "Recruiter"))
+page = st.sidebar.radio("Go to", ("Home", "Candidate", "Recruiter","ATS Score"))
 
 # Home page content
 if page == "Home":
@@ -18,3 +19,7 @@ elif page == "Candidate":
 # Recruiter page
 elif page == "Recruiter":
     recruiter.app()
+
+#ATS Score page
+elif page == "ATS Score":
+    ATS.app()
