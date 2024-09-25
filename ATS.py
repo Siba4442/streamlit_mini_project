@@ -75,6 +75,3 @@ def app():
             
                 # Display ATS score for the selected job category
                 st.write(f"ATS Score for {selected_category} job: {ats_score}%")
-
-if __name__ == "__main__":
-    app()
