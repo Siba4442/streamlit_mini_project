@@ -158,7 +158,7 @@ def app():
                     st.markdown(f'<a href="data:application/pdf;base64,{resume_base64}" download="{row["Name"]}_resume.pdf">Download Resume</a>', unsafe_allow_html=True)
 
                     # Option to view the PDF directly in the app
-                     st.markdown(f'<iframe src="data:application/pdf;base64,{resume_base64}" width="700" height="400"></iframe>', unsafe_allow_html=True)
+                    st.markdown(f'<iframe src="data:application/pdf;base64,{resume_base64}" width="700" height="400"></iframe>', unsafe_allow_html=True)
         else:    
             st.write("Please fill all the required fields before submitting.")
 
