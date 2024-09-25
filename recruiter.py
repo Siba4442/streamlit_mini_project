@@ -6,6 +6,7 @@ from gensim.models import Word2Vec
 import numpy as np
 import os
 from sklearn.metrics.pairwise import cosine_similarity
+import base64
 def app():
     # Initialize resources once
     if 'initialized' not in st.session_state:
@@ -155,9 +156,8 @@ def app():
                     st.write(f"*Zip Code:* {row['Zip_Code']}")
                     # Display the resume as a base64 PDF
                     resume_base64 = row['base64_pdf']
-                    st.markdown(f'<a href="data:application/pdf;base64,{resume_base64}" download="{row["Name"]}_resume.pdf">Download Resume</a>', unsafe_allow_html=True)
-
-                    # Option to view the PDF directly in the app
+                    pdf_data = base64.b64decode(resume_base64)
+                    st.download_button(label="Download PDF", data=pdf_data, file_name=f"{row['Name']}_resume.pdf")
                     st.markdown(f'<iframe src="data:application/pdf;base64,{resume_base64}" width="700" height="400"></iframe>', unsafe_allow_html=True)
         else:    
             st.write("Please fill all the required fields before submitting.")
