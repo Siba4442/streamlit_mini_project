@@ -153,13 +153,14 @@ def app():
                     st.write(f"*Address:* {row['Address']}")
                     st.write(f"*Gender:* {row['Gender']}")
                     st.write(f"*Zip Code:* {row['Zip_Code']}")
-                    # Display the resume as a base64 PDF
-                    resume_base64 = row['base64_pdf']
-                    st.markdown(f'<a href="data:application/pdf;base64,{resume_base64}" download="{row["Name"]}_resume.pdf">Download Resume</a>', unsafe_allow_html=True)
+                    resume_file_path = row['File_path']  # Use the File_path column
+
+                    # Create a download link for the PDF
+                    st.markdown(f'<a href="{resume_file_path}" download="{row["Name"]}_resume.pdf">Download Resume</a>', unsafe_allow_html=True)
 
                     # Option to view the PDF directly in the app
-                    st.markdown(f'<iframe src="data:application/pdf;base64,{resume_base64}" width="700" height="400"></iframe>', unsafe_allow_html=True)
-        else:
+                    st.markdown(f'<iframe src="{resume_file_path}" width="700" height="400"></iframe>', unsafe_allow_html=True)
+        else:    
             st.write("Please fill all the required fields before submitting.")
 
 if __name__ == "__main__":
