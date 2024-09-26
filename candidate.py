@@ -146,19 +146,9 @@ def app():
 
 
     # Streamlit UI
-    st.markdown(
-        """
-        <style>
-        .center-text {
-            text-align: center;
-        }
-        </style>
-        """, 
-        unsafe_allow_html=True
-    )
+    st.title("INTERNOVA - Candidate Hub")
+    st.write("### Discover the Perfect Opportunity for Your Career")
 
-    st.markdown("<h1 class='center-text'>INTERNOVA</h1>", unsafe_allow_html=True)
-    st.markdown("<h3 class='center-text'>Where Skills Meet Opportunity</h3>", unsafe_allow_html=True)
 
     # DataFrame for user inputs
     users_df1 = pd.DataFrame(columns=['userNames', 'skillsofusers'])
